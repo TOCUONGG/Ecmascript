@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giỏ hàng</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 20px 0;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#total {
+  margin-top: 20px;
+  text-align: right;
+}
+
+button[type="button"] {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+    </style>
+  </head>
+  <body>
+    <section class="row">
+        <div class="col">
+          <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand" href="#">Poly Shop</a>
+            <button
+              class="navbar-toggler d-lg-none"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapsibleNavId"
+              aria-controls="collapsibleNavId"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#"
+                    >Home <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="listCategory.html">Categories</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="listProducts.html">Product</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="cartProduct.html">Cart</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input
+                  class="form-control mr-sm-2"
+                  type="text"
+                  placeholder="Search"
+                />
+                <button
+                  class="btn btn-outline-success my-2 my-sm-0"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <section class="row">
+        <div class="col"></div>
+      </section>
+
+    <h1>Giỏ hàng</h1>
+    <form>
+      <label for="name">Tên sản phẩm:</label>
+      <input type="text" id="name" name="name" /><br />
+
+      <label for="price">Giá tiền:</label>
+      <input type="number" id="price" name="price" /><br />
+
+      <label for="quantity">Số lượng:</label>
+      <input type="number" id="quantity" name="quantity" /><br />
+
+      <button type="button" onclick="addToCart()">Thêm vào giỏ hàng</button>
+    </form>
+
+    <table id="cart">
+      <tr>
+        <th>Tên</th>
+        <th>Giá tiền</th>
+        <th>Số lượng</th>
+        <th>Tổng tiền</th>
+        <th>Xóa</th>
+      </tr>
+    </table>
+
+    <p id="total">Tổng tiền: 0 đồng</p>
+
+    <button type="button" onclick="checkout()">Thanh toán</button>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
+  </body>
+</html>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"
+></script>
+
+
+<script src="./app/cartProduct.js" type="module"></script>
